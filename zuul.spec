@@ -3,7 +3,7 @@
 Name:             zuul
 Summary:          GoodData customized Zuul gatekeeper
 Epoch:            1
-Version:          2.5.2
+Version:          2.5.3
 Release:          %{?gdcversion}%{?dist}.gdc
 
 Vendor:           GoodData
@@ -56,6 +56,9 @@ GoodData customized Zuul gatekeeper
 %attr(0755, root, root) %{install_dir}/tools
 
 %changelog
+* Wed Aug 7 2019 Binh Pham <binh.pham@gooddata.com> - 2.5.3
+- SETI-3262 Change logging stream from stderr to stdout for zuul-clear-refs.py
+
 * Wed Jul 10 2019 King Nguyen <king.nguyen@gooddata.com> - 2.5.2
 - SETI-1989 Add tools folder to package
 
