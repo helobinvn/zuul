@@ -563,6 +563,7 @@ class Job(object):
         for a in self.authors:
             if hasattr(change, 'username') and a.match(change.username):
                 matches_author = True
+                break
         if self.authors and not matches_author:
             return False
 
@@ -570,6 +571,7 @@ class Job(object):
         for t in self.pr_titles:
             if hasattr(change, 'title') and t.match(change.title):
                 matches_pr_title = True
+                break
         if self.pr_titles and not matches_pr_title:
             return False
 

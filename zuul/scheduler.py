@@ -596,7 +596,7 @@ class Scheduler(threading.Thread):
             if swift:
                 for s in swift:
                     job.swift[s['name']] = s
-            authors =  toList(config_job.get('authors'))
+            authors = toList(config_job.get('authors'))
             if authors:
                 job._authors = authors
                 job.authors = [re.compile(x) for x in authors]
