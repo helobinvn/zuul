@@ -479,6 +479,10 @@ class Job(object):
         self._files = []
         self.skip_if_matcher = None
         self.swift = {}
+        self.authors = []
+        self._authors = []
+        self.pr_titles = []
+        self._pr_titles = []
 
     def __str__(self):
         return self.name
@@ -510,6 +514,12 @@ class Job(object):
         if other.files:
             self.files = other.files[:]
             self._files = other._files[:]
+        if other.authors:
+            self.authors = other.authors[:]
+            self._authors = other._authors[:]
+        if other.pr_titles:
+            self.pr_titles = other.pr_titles[:]
+            self._pr_titles = other._pr_titles[:]
         if other.skip_if_matcher:
             self.skip_if_matcher = other.skip_if_matcher.copy()
         if other.swift:
@@ -547,6 +557,20 @@ class Job(object):
             return False
 
         if self.skip_if_matcher and self.skip_if_matcher.matches(change):
+            return False
+
+        matches_author = False
+        for a in self.authors:
+            if hasattr(change, 'username') and a.match(change.username):
+                matches_author = True
+        if self.authors and not matches_author:
+            return False
+
+        matches_pr_title = False
+        for t in self.pr_titles:
+            if hasattr(change, 'title') and t.match(change.title):
+                matches_pr_title = True
+        if self.pr_titles and not matches_pr_title:
             return False
 
         return True

@@ -62,6 +62,7 @@ class GithubSource(BaseSource):
             change.files = event.files
             change.title = event.title
             change.source_event = event
+            change.username = event.account.get('username')
         else:
             change = Ref(project)
             change.ref = event.ref
