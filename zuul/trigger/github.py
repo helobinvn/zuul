@@ -66,7 +66,7 @@ def getSchema():
         'branch': toList(str),
         'ref': toList(str),
         'comment': toList(str),
-        'label': toList(str)
+        'label': toList(str),
     }
 
     logging.debug("github_trigger")

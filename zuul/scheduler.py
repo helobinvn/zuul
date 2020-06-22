@@ -596,10 +596,6 @@ class Scheduler(threading.Thread):
             if swift:
                 for s in swift:
                     job.swift[s['name']] = s
-            authors = toList(config_job.get('authors'))
-            if authors:
-                job._authors = authors
-                job.authors = [re.compile(x) for x in authors]
             pr_titles = toList(config_job.get('pr_titles'))
             if pr_titles:
                 job._pr_titles = pr_titles
@@ -1287,8 +1283,6 @@ class BasePipelineManager(object):
                         efilters += str(b)
                     for f in job._files:
                         efilters += str(f)
-                    for a in job._authors:
-                        efilters += '[authors: %s]' % str(a)
                     for t in job._pr_titles:
                         efilters += '[titles: %s]' % str(t)
                     if job.skip_if_matcher:

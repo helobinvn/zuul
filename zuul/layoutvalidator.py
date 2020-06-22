@@ -114,8 +114,7 @@ class LayoutSchema(object):
            'files': toList(str),
            'swift': toList(swift),
            'skip-if': toList(skip_if),
-           'authors': toList(str),
-           'pr_titles': toList(str)
+           'pr_titles': toList(str),
            }
     jobs = [job]
 
