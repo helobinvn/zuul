@@ -12,7 +12,7 @@ python-daemon==2.0.6
 extras==1.0.0
 statsd==2.1.2
 voluptuous==0.11.7
-gear==0.11.1
+gear==0.13.0
 APScheduler==3.0.6
 prettytable==0.7.2
 Babel==2.8.0
