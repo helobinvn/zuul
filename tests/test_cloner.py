@@ -120,6 +120,7 @@ class TestCloner(ZuulTestCase):
 
     def test_one_branch(self):
         self.worker.hold_jobs_in_build = True
+        self.worker.release()
 
         projects = ['org/project1', 'org/project2']
         A = self.fake_gerrit.addFakeChange('org/project1', 'master', 'A')
